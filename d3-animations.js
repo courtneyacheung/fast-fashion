@@ -1,4 +1,4 @@
-const margin = {top: 50, right: 25, bottom: 45, left: 80},
+const margin = {top: 50, right: 65, bottom: 45, left: 80},
       width = 660 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
@@ -41,8 +41,14 @@ function plot0(){
         .attr("transform", "translate(0," + height + ")")
         .attr("stroke", "white")
         .call(d3.axisBottom(x))
+        svg
         .select(".domain")
-        .attr("stroke", "white");
+        .attr("stroke", "white")
+        svg
+        .selectAll(".tick text")
+        .style("text-anchor", "end")
+        .style("font-size", "6.5px")
+        .attr("transform", "translate(-5.5,0)rotate(-65)");
         // Add Y axis
         var y = d3.scaleLinear()
         .domain( [0, 2510])
