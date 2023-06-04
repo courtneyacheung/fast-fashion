@@ -57,61 +57,51 @@ function handleStepEnter(response) {
             // }
             break;
         case 1:
-            plot1()
+            
             // toolTipState = 'title score';
             // dotColorSentiment()
             break;
         case 2:
-            plot2()
+            plot1()
             // toolTipState = 'title score magnitude';
             // dotResize()
             // if(currentDirection === 'up'){
             //     toggleAxesOpacity(true, false, 0)
             // }
             break;
-        // case 3:
-        //     dotPositionScore()
-        //     if(currentDirection === 'up'){
-        //         toggleAxesOpacity(false, true, 0)
-        //     }
-        //     break;
-        // case 4:
+        case 3:
+            
+            // dotPositionScore()
+            // if(currentDirection === 'up'){
+            //     toggleAxesOpacity(false, true, 0)
+            // }
+            break;
+        case 4:
+            plot2()
         //     dotPositionMagnitude()
         //     if(currentDirection === 'up'){
         //         toggleAxesOpacity(true, true, 1)
         //     }else{
         //         toggleAxesOpacity(false, true, 1)
         //     }
-        //     break;
-        // case 5:
+            break;
+        case 5:
         //     dotSimplify()
         //     if(currentDirection === 'up'){
         //         hideStraightPath()
         //     }else{
         //         toggleAxesOpacity(true, true, 0)
         //     }
-        //     break;
-        // case 6:
+            break;
+        case 6:
+            research()
         //     if(currentDirection === 'up'){
         //         hideBezierPath()
         //         toggleElementOpacity(line, 1)
         //     }else{
         //         drawStraightPath()
         //     }
-        //     break;
-        // case 7:
-        //     toggleElementOpacity(line, 0.25)
-        //     if(currentDirection === 'up'){
-        //         toggleElementOpacity(bubbleChart, 1)
-        //     } else {
-        //         drawBezierPath();
-        //     }
-        //     break;
-        // case 8:
-        //     if(currentDirection === 'down'){
-        //         toggleElementOpacity(line, 0)
-        //         toggleElementOpacity(bubbleChart, 0)
-        //     }
+            break;
         default:
             break;
     }

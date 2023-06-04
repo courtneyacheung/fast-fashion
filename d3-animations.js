@@ -1,347 +1,16 @@
-// set the dimensions and margins of the graph
-const margin = {top: 50, right: 25, bottom: 45, left: 50},
-      width = 700 - margin.left - margin.right,
-      height = 420 - margin.top - margin.bottom;
-
-// // append the svg object to the body of the page
-// const svg = d3.select("#avicii_viz")
-//     .append("svg")
-//         .attr("width", width + margin.left + margin.right)
-//         .attr("height", height + margin.top + margin.bottom)
-//         .append("g")
-//             .attr("transform", `translate(${margin.left},${margin.top})`);
-
-// // set colours for plot
-// const color_mapping = {
-//     red: '#A6055D',
-//     grey: '#777',
-//     green: '#00C184'
-// }
-
-// // Add X axis
-// const x = d3.scaleLinear()
-//     .domain([0, 13])
-//     .range([ 0, width ]);
-              
-// svg.append("g")
-//     .attr("transform", `translate(0, ${height})`)
-//     .attr("class", "Xaxis axis")
-//     .style("opacity", 0)
-//     .call(d3.axisBottom(x));
-
-// // Add Y axis
-// const y = d3.scaleLinear()
-//     .domain([0, 2])
-//     .range([ height, 0]);
-
-// svg.append("g")
-//     .attr("class", "Yaxis axis")
-//     .style("opacity", 0)
-//     .call(d3.axisLeft(y));
-
-// // Add a scale for bubble size
-// const z = d3.scaleLinear()
-//     .domain([0, 1])
-//     .range([ 1, 4]);
-              
-// var tooltip = d3.select("#avicii_viz")
-//     .append("div")
-//     .style("opacity", 0)
-//     .attr("class", "tooltip")
-
-// change tooltip text based on position in story
-// function returnTooltipText(step, d){
-    
-//     switch (step){
-//         case 'title':
-//             return d.index + ": " + d.title
-//             break;
-//         case 'title score':
-//             return d.index + ": " + d.title +
-//                 " - sentiment score: " + d.score 
-//             break;
-//         case 'title score magnitude':
-//             return d.index + ": " + d.title +
-//                 " - sentiment score: " + d.score +
-//                 " - magnitude: " + d.magnitude
-//             break;
-//     }             
-    
-// }
-              
-// // create 2 functions to show and hide the tooltip
-// var showTooltip = function(d) {
-//     tooltip
-//         .transition()
-//         .duration(200)
-//     tooltip
-//         .style("opacity", 1)
-//         .html(returnTooltipText(toolTipState, d))
-// }
-
-// var hideTooltip = function(d) {
-//     tooltip
-//         .transition()
-//         .duration(200)
-//         .style("opacity", 0)
-// }
-
-// // add bubble chart
-// const bubbleChart = svg.append('g')
-//     .attr("class", "chart")
-//     .selectAll("dot")
-//     .data(data)
-//         .join("circle")
-//             .attr("class", "bubbles")
-//             .attr("cx", d => x(d.index))
-//             .attr("cy", d => y(1))
-//             .attr("r", 10)
-//             .style("fill", "#F2E8DC")
-//             .attr("stroke", "white")
-//         .on("mouseover", showTooltip )
-//         .on("mouseleave", hideTooltip )      
-              
-// let bubbleRadius = 'pop'
-// var xAxis = d3.axisBottom().scale(x);
-// var yAxis = d3.axisLeft().scale(y);
-    
-// // various functions to update chart elements
-
-// function dotColorGrey(){
-//     bubbleChart
-//         .data(data)
-//         .transition()
-//             .duration(1000)
-//                 .attr("r", 10)  
-//                 .style("fill", "#F2E8DC")
-// }
-
-// function dotColorSentiment(){
-//     bubbleChart               
-//         .data(data)
-//         .transition()
-//             .duration(1000)
-//                 .attr("r", 10)  
-//                 .style("fill", function(d){ 
-//                 if (d.score > 0){
-//                     return color_mapping.green
-//                 } else if (d.score < 0){
-//                     return color_mapping.red
-//                 } else {
-//                     return color_mapping.grey
-//                 }
-//     })
-// }
-
-// function dotResize(){
-//     x.domain([0,13]);
-    
-//     svg.selectAll(".Xaxis")
-//         .transition()
-//         .duration(1000)
-//             .call(xAxis);
-                          
-//     y.domain([0,2]);
-    
-//     svg.selectAll(".Yaxis")
-//         .transition()
-//         .duration(1000)
-//             .call(yAxis);
-                          
-//     bubbleChart
-//         .data(data)
-//         .transition()
-//         .duration(1000)
-//             .attr("cx", d => x(d.index))
-//             .attr("cy", d => y(1))
-//             .attr("r", d => (d.magnitude*2.7));
-    
-// }
-
-// function dotPositionScore(){
-//     x.domain([-.8,.8]);
-    
-//     svg.selectAll(".Xaxis")
-//         .transition()
-//         .duration(1000)
-//             .style("opacity", 1)
-//             .call(xAxis);
-                          
-    
-//     y.domain([0,2]);
-    
-//     svg.selectAll(".Yaxis")
-//         .transition()
-//         .duration(1000)
-//             .call(yAxis);
-                          
-//     bubbleChart
-//         .data(data)
-//         .transition()
-//         .duration(1000)
-//             .attr("cx", d => x(d.score))
-//             .attr("cy", d => y(1))
-// }
-
-// function dotPositionMagnitude(){
-//     y.domain([1,d3.max(data, function(d) { return d.magnitude + 1 }) ]);
-    
-//     svg.selectAll(".Yaxis")
-//         .transition()
-//         .duration(1000)
-//             .style("opacity", 1)
-//             .call(yAxis);
-
-//     bubbleChart
-//         .data(data)
-//         .transition()
-//         .duration(1000)
-//             .style("fill", function(d){ 
-//                 if (d.score > 0){
-//                     return color_mapping.green
-//                 } else if (d.score < 0){
-//                     return color_mapping.red
-//                 } else {
-//                     return color_mapping.grey
-//                 }
-//             })
-//             .attr("r", d => (d.magnitude*2))
-//             .attr("cy", d => y(d.magnitude))
-// }
-
-// function dotSimplify(){
-//     bubbleChart
-//         .data(data)
-//         .transition()
-//         .duration(1000)
-//             .style("fill", "black")
-//             .attr("r", 5)
-
-// }
-
-// function toggleAxesOpacity(toggleX, toggleY, opacity){
-//     if(toggleX){
-//         svg.selectAll(".Xaxis")
-//             .transition()
-//             .duration(1000)
-//                 .style("opacity", opacity)
-//     }
-    
-//     if(toggleY){
-//         svg.selectAll(".Yaxis")
-//             .transition()
-//             .duration(1000)
-//                 .style("opacity", opacity)
-//     }
-// }
-
-// function drawStraightPath(){
-//     if (typeof line === 'undefined'){
-//         var path = d3.path();
-                          
-//         for (var item = 0; item < data.length; item++){
-//             let x_value = data[item].score
-//             let y_value = data[item].magnitude
-//             if (item === 0){
-//                 path.moveTo(x(x_value), y(y_value));
-//             } else {
-//                 path.lineTo(x(x_value), y(y_value));
-//             }
-//         }
-        
-//         window.line = d3.select(".chart")
-//             .append("path")
-//             .attr("class", "straight")
-//             .attr("d", path)
-
-//         window.totalLength = line.node().getTotalLength()
-//     }
-
-//     line
-//       .attr("stroke", "#F2E8DC")
-//       .attr("fill", "none")
-//       .attr("stroke-dasharray", totalLength + " " + totalLength)
-//       .attr("stroke-dashoffset", totalLength)
-//       .transition()
-//         .duration(3000)
-//         .attr("stroke-dashoffset", 0)
-// }
-
-// function hideStraightPath(){
-//     line
-//         .transition()
-//         .duration(3000)
-//             .attr("stroke-dasharray", totalLength + " " + totalLength)
-//             .attr("stroke-dashoffset", totalLength)
-    
-// }
-
-// function toggleElementOpacity(element, opacity){
-//     element
-//         .transition()
-//         .duration(1000)
-//             .style("opacity", opacity)
-// }
-
-// function drawBezierPath(){
- 
-
-//     if (typeof lineBezier === 'undefined'){
-//         var pathBezier = d3.path();
-
-//         for (var item = 0; item < bezierData.length; item++){
-//             let currenItem = bezierData[item];
-
-//             if(item === 0){
-//                 pathBezier.moveTo(x(currenItem[0]), y(currenItem[1]));
-//             }
-
-
-//             pathBezier.bezierCurveTo(
-//                 x(currenItem[2]), 
-//                 y(currenItem[3]),
-//                 x(currenItem[4]), 
-//                 y(currenItem[5]),
-//                 x(currenItem[6]), 
-//                 y(currenItem[7]),
-//           );
-
-//         }  
-        
-//         window.lineBezier = d3.select(".chart")
-//             .append("path")
-//                 .attr("class", "bezier")
-//                 .attr("stroke-width", "2px")
-//                 .attr("d", pathBezier)
-
-//         window.totalLengthBezier = lineBezier.node().getTotalLength()
-//     }
-
-//     lineBezier
-//         .attr("stroke", "#F2E8DC")
-//         .attr("fill", "none")
-//         .attr("stroke-dasharray", totalLengthBezier + " " + totalLengthBezier)
-//         .attr("stroke-dashoffset", totalLengthBezier)
-//         .transition()
-//         .duration(3000)
-//             .attr("stroke-dashoffset", 0);
-// }
-
-// function hideBezierPath(){
-//     lineBezier
-//         .attr("fill", "none")
-//         .transition()
-//         .duration(3000)
-//             .attr("stroke-dasharray", totalLengthBezier + " " + totalLengthBezier)
-//             .attr("stroke-dashoffset", totalLengthBezier)
-    
-// }
+const margin = {top: 50, right: 25, bottom: 45, left: 80},
+      width = 660 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
 
 function plot0(){
     console.log("plot0");
 
     d3.select("#SVGid")
     .remove();
+
+    // const margin = {top: 50, right: 25, bottom: 45, left: 80},
+    //   width = 660 - margin.left - margin.right,
+    //   height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
@@ -383,16 +52,43 @@ function plot0(){
         .call(d3.axisLeft(y))
         .select(".domain")
         .attr("stroke", "white");
-        // Add the line
-        svg.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "#69b3a2")
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.Year) })
-            .y(function(d) { return y(d.Publications) })
-            )
+
+        // tooltip
+        var tooltip = d3.select("#avicii_viz")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        // .attr("width", 100)
+        // .attr("height", 10)
+        // .style("background-color", "white")
+        // .style("border", "solid")
+        // .style("border-width", "1px")
+        // .style("border-radius", "5px")
+        // .style("padding", "10px")
+
+        // Three function that change the tooltip when user hover / move / leave a cell
+        var mouseover = function(event, d) {
+            console.log("blah");
+            console.log(d.Publications);
+            console.log(event.pageX);
+
+            tooltip
+            .html(d.Publications)
+            .style("opacity", 1)
+            .style("position", "absolute")
+            .style("color", "white")
+        }
+        var mousemove = function(event, d) {
+        console.log(d);
+            tooltip
+            .style("left", event.pageX - 800 + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("top", event.pageY - 1380 + 'px')
+        }
+        var mouseleave = function(event, d) {
+            tooltip
+            .style("opacity", 0)
+        }
+
         // Add the points
         svg
         .append("g")
@@ -403,7 +99,52 @@ function plot0(){
             .attr("cx", function(d) { return x(d.Year) } )
             .attr("cy", function(d) { return y(d.Publications) } )
             .attr("r", 5)
+            .on("mouseover", mouseover)
+            .on("mousemove", mousemove)
+            .on("mouseleave", mouseleave)
+            .transition()
+            // .duration(1000)
+            .delay((function(d, i) {
+                return i * 100+2000;
+            }))
             .attr("fill", "#69b3a2")
+
+        // Add the line
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "#69b3a2")
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.Year) })
+            .y(function(d) { return y(d.Publications) })
+            )
+
+
+        // Add X axis label:
+        svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width/2)
+        .attr("y", height+40 )
+        .text("Year")
+        .attr("stroke", "white");
+
+        // Add Y axis label:
+        svg.append("text")
+        .attr("x", -height/2)
+        .attr("y", -50 )
+        .attr("text-anchor", "middle")
+        .text("# of Publications")
+        .attr("transform", "rotate(-90)")
+        .attr("stroke", "white");
+
+        // Add title:
+        svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("x", width/2)
+        .attr("y", -20 )
+        .text("Google Scholar Publications Increasingly Contain 'Fast Fashion' and 'Social Media'")
+        .attr("stroke", "white");
         
     });
     
@@ -428,10 +169,10 @@ function plot1(){
 
         console.log(US)
 
-    // set the dimensions and margins of the graph
-    var margin = {top: 60, right: 230, bottom: 50, left: 50},
-    width = 660 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    // // set the dimensions and margins of the graph
+    // var margin = {top: 60, right: 230, bottom: 50, left: 50},
+    // width = 660 - margin.left - margin.right,
+    // height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
@@ -466,36 +207,30 @@ function plot1(){
 
     svg.selectAll(".pin")
     .data(US)
-    .enter().append("circle", ".pin")
-    .attr("r", 3.5)
+    .enter()
+    .append("circle", ".pin")
+    .attr("r", 0)
     .attr("transform", function(d) {
         return "translate(" + projection([
         d.longitude,
         d.latitude
         ]) + ")";
     })
+    .transition()
+    .duration(1000)
+    .delay((function(d, i) {
+        return i * 10;
+      }))
+    .attr("r", 3.5)
     .attr("fill", "white")
     .attr("stroke", "black");
-
-
-    // create zoom effect
-    let zoom = d3.zoom()
-    .scaleExtent([0.1, 3])
-    .on('zoom', function(event) {
-        svg.selectAll("g")
-        .attr('transform', event.transform);
-        svg.selectAll("circle")
-        .attr('transform', event.transform);
-    });
-
-    svg.call(zoom)
 
     // Add title:
     svg.append("text")
     .attr("text-anchor", "middle")
-    .attr("x", width/2+50)
-    .attr("y", -45 )
-    .text("H&M Stores in the US")
+    .attr("x", width/2+120)
+    .attr("y", -15 )
+    .text("H&M Stores in the US, 2022")
     .attr("stroke", "white");
 
     })
@@ -511,10 +246,10 @@ function plot2(){
     d3.select("#SVGid")
     .remove();
 
-    // set the dimensions and margins of the graph
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
-    width = 660 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    // // set the dimensions and margins of the graph
+    // var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    // width = 660 - margin.left - margin.right,
+    // height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
@@ -539,6 +274,42 @@ function plot2(){
             .style("stroke", "#aaa")
             .attr("stroke-width", 1)
 
+        // tooltip
+        var tooltip = d3.select("#avicii_viz")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "tooltip")
+        // .attr("width", 100)
+        // .attr("height", 10)
+        // .style("background-color", "white")
+        // .style("border", "solid")
+        // .style("border-width", "1px")
+        // .style("border-radius", "5px")
+        // .style("padding", "10px")
+
+        // Three function that change the tooltip when user hover / move / leave a cell
+        var mouseover = function(event, d) {
+            console.log("blah");
+            console.log(`<a href="${d.paper}">link</a>`);
+
+            tooltip
+            .html(`<a href="${d.paper}">link</a>`)
+            .style("opacity", 1)
+            .style("position", "absolute")
+            .style("color", "white")
+        }
+        var mousemove = function(event, d) {
+        console.log(d);
+            tooltip
+            .style("left", event.pageX -800+ 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("top", event.pageY -1380 + 'px')
+        }
+        var mouseleave = function(d) {
+            tooltip
+            .style("opacity", 0)
+        }
+
+
         // Initialize the nodes
         var node = svg.append("g")
         .attr("class", "nodes")
@@ -548,6 +319,9 @@ function plot2(){
         .append("circle")
             .attr("r", 15)
             .style("fill", "#69b3a2")
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
         
         let label = svg.append("g")
         .attr("class", "labels")
@@ -585,7 +359,6 @@ function plot2(){
                 return d.x;
             })
                 .attr("y", function (d) {
-                    console.log(d);
                     return d.y;
                 })
                 .style("font-size", "8px");
@@ -607,11 +380,56 @@ function plot2(){
         svg.append("text")
         .attr("text-anchor", "middle")
         .attr("x", width/2)
-        .attr("y", 10 )
-        .text("Flow of Goods from Different States");
+        .attr("y", -25 )
+        .text("Literature by Citation")
+        .attr("stroke", "white");
+
+
+        
 
     });
 
     
 }
 
+function research(){
+    d3.select("#SVGid")
+    .remove();
+
+    // // set the dimensions and margins of the graph
+    // var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    // width = 660 - margin.left - margin.right,
+    // height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#avicii_viz")
+    .append("svg")
+    .attr("id", "SVGid")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+    svg.append("text")
+    .attr("text-anchor", "left")
+    .attr("x", width/2-50)
+    .attr("y", height/2 )
+    .text("Link to survey")
+    .attr("stroke", "white");
+
+    svg.append("text")
+    .attr("text-anchor", "left")
+    .attr("x", width/2-50)
+    .attr("y", height/2 +20 )
+    .text("Link to Responses")
+    .attr("stroke", "white");
+
+    svg.append("text")
+    .attr("text-anchor", "left")
+    .attr("x", width/2-50)
+    .attr("y", height/2 +40)
+    .text("Link to Research Paper")
+    .attr("stroke", "white");
+
+}
