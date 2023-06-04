@@ -41,7 +41,7 @@ function handleStepEnter(response) {
     // response = { element, direction, index }
     let currentIndex = response.index;
     let currentDirection = response.direction;
-    
+    console.log(currentIndex, currentDirection);
     // add color to current step only
     step.classed("is-active", function(d, i) {
         return i === currentIndex;
@@ -50,65 +50,68 @@ function handleStepEnter(response) {
     // update graphic based on step
     switch(currentIndex){
         case 0:
-            toolTipState = 'title';
-            if(currentDirection === 'up'){
-                dotColorGrey();
-            }
+            plot0()
+            // toolTipState = 'title';
+            // if(currentDirection === 'up'){
+            //     dotColorGrey();
+            // }
             break;
         case 1:
-            toolTipState = 'title score';
-            dotColorSentiment()
+            plot1()
+            // toolTipState = 'title score';
+            // dotColorSentiment()
             break;
         case 2:
-            toolTipState = 'title score magnitude';
-            dotResize()
-            if(currentDirection === 'up'){
-                toggleAxesOpacity(true, false, 0)
-            }
+            plot2()
+            // toolTipState = 'title score magnitude';
+            // dotResize()
+            // if(currentDirection === 'up'){
+            //     toggleAxesOpacity(true, false, 0)
+            // }
             break;
-        case 3:
-            dotPositionScore()
-            if(currentDirection === 'up'){
-                toggleAxesOpacity(false, true, 0)
-            }
-            break;
-        case 4:
-            dotPositionMagnitude()
-            if(currentDirection === 'up'){
-                toggleAxesOpacity(true, true, 1)
-            }else{
-                toggleAxesOpacity(false, true, 1)
-            }
-            break;
-        case 5:
-            dotSimplify()
-            if(currentDirection === 'up'){
-                hideStraightPath()
-            }else{
-                toggleAxesOpacity(true, true, 0)
-            }
-            break;
-        case 6:
-            if(currentDirection === 'up'){
-                hideBezierPath()
-                toggleElementOpacity(line, 1)
-            }else{
-                drawStraightPath()
-            }
-            break;
-        case 7:
-            toggleElementOpacity(line, 0.25)
-            if(currentDirection === 'up'){
-                toggleElementOpacity(bubbleChart, 1)
-            } else {
-                drawBezierPath();
-            }
-            break;
-        case 8:
-            if(currentDirection === 'down'){
-                toggleElementOpacity(line, 0)
-                toggleElementOpacity(bubbleChart, 0)
-            }
+        // case 3:
+        //     dotPositionScore()
+        //     if(currentDirection === 'up'){
+        //         toggleAxesOpacity(false, true, 0)
+        //     }
+        //     break;
+        // case 4:
+        //     dotPositionMagnitude()
+        //     if(currentDirection === 'up'){
+        //         toggleAxesOpacity(true, true, 1)
+        //     }else{
+        //         toggleAxesOpacity(false, true, 1)
+        //     }
+        //     break;
+        // case 5:
+        //     dotSimplify()
+        //     if(currentDirection === 'up'){
+        //         hideStraightPath()
+        //     }else{
+        //         toggleAxesOpacity(true, true, 0)
+        //     }
+        //     break;
+        // case 6:
+        //     if(currentDirection === 'up'){
+        //         hideBezierPath()
+        //         toggleElementOpacity(line, 1)
+        //     }else{
+        //         drawStraightPath()
+        //     }
+        //     break;
+        // case 7:
+        //     toggleElementOpacity(line, 0.25)
+        //     if(currentDirection === 'up'){
+        //         toggleElementOpacity(bubbleChart, 1)
+        //     } else {
+        //         drawBezierPath();
+        //     }
+        //     break;
+        // case 8:
+        //     if(currentDirection === 'down'){
+        //         toggleElementOpacity(line, 0)
+        //         toggleElementOpacity(bubbleChart, 0)
+        //     }
         default:
             break;
     }

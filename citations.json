@@ -1,0 +1,169 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "paper": "https://www.researchgate.net/publication/368675075_Impact_of_Social_Media_on_Young_Generation's_Green_Consumption_Behavior_through_Subjective_Norms_and_Perceived_Green_Value",
+            "year": 2023,
+            "topic(s)": "social media, environmental sustainability, consumer perception",
+            "method(s)": "survey/questionnaire, predictive modeling"
+
+        },
+        {
+            "id": 2,
+            "paper": "https://www.sciencedirect.com/science/article/pii/S0040162522005881",
+            "year": 2022,
+            "topic(s)": "social media, marketing, political consumerism, environmental sustainability, consumer percption",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 3,
+            "paper": "https://journals.sagepub.com/doi/full/10.1177/14614448221083025",
+            "year": 2022,
+            "topic(s)": "social media, political consumerism",
+            "method(s)": "survey/questionnaire"
+        },
+        {
+            "id": 4,
+            "paper": "https://www.tandfonline.com/doi/pdf/10.1080/09669582.2022.2112588?casa_token=Sotcw21u5vsAAAAA:HB1MlQEzYSkbhhsFQ1pWlTmr_LaPUI9kxDQ8Y3xDT4ElOnppRg9CJ7ux49kcjwR-FMqiPtS0tLax",
+            "year": 2022,
+            "topic(s)": "social media, political consumerism, environmental sustainability",
+            "method(s)": "interview"
+        },
+        {
+            "id": 5,
+            "paper": "https://www.researchgate.net/publication/361106452_The_Impact_of_Social_Media_Information_Sharing_on_the_Green_Purchase_Intention_among_Generation_Z",
+            "year": 2022,
+            "topic(s)": "consumer percption",
+            "method(s)": "survey/questionnaire"
+        },
+        {
+            "id": 6,
+            "paper": "https://www.tandfonline.com/doi/epdf/10.1080/1369118X.2021.2020872?needAccess=true&role=button",
+            "year": 2021,
+            "topic(s)": "social media, political consumerism",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 7,
+            "paper": "https://reader.elsevier.com/reader/sd/pii/S0959652619335711?token=AC7E010AB7484B1156551525CF5F0312226333778C099DCA9F935D42F66ACA850EBFFC1BA22C05C6B666930B2069E205&originRegion=us-east-1&originCreation=20230428071628",
+            "year": 2020,
+            "topic(s)": "social media, marketing, environmental sustainability, labor",
+            "method(s)": "data mining, predictive modeling"
+        },
+        {
+            "id": 8,
+            "paper": "https://www.tandfonline.com/doi/epdf/10.1080/20932685.2019.1649168?needAccess=true&role=button",
+            "year": 2019,
+            "topic(s)": "social media, marketing, consumer percption",
+            "method(s)": "data mining, predictive modeling"
+        },
+        {
+            "id": 9,
+            "paper": "https://www.tandfonline.com/doi/epdf/10.1080/10496491.2019.1557815?needAccess=true&role=button",
+            "year": 2019,
+            "topic(s)": "social media, marketing, consumer percption",
+            "method(s)": "netnography"
+        },
+        {
+            "id": 10,
+            "paper": "https://link.springer.com/chapter/10.1007/978-981-13-1268-7_1",
+            "year": 2018,
+            "topic(s)": "social media, marketing, political consumerism, environmental sustainability, labor",
+            "method(s)": ""
+        },
+        {
+            "id": 11,
+            "paper": "https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1087022&dswid=-8980",
+            "year": 2017,
+            "topic(s)": "social media, marketing",
+            "method(s)": "focus groups"
+        },
+        {
+            "id": 12,
+            "paper": "http://www.digitalcommons.www.na-businesspress.com/AJM/LuciusHW_Web16_3_.pdf",
+            "year": 2016,
+            "topic(s)": "social media, marketing",
+            "method(s)": ""
+        },
+        {
+            "id": 13,
+            "paper": "https://www.mcser.org/journal/index.php/ajis/article/view/8365/8029",
+            "year": 2015,
+            "topic(s)": "social media, marketing, consumer percption",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 14,
+            "paper": "https://journals.sagepub.com/doi/pdf/10.1177/1461444813487960?casa_token=JImqS1ZUSmwAAAAA:gWzPyGGaauKjv9Frq9LPxF42FOWz3iE1kKgD7lIjovRqS3Twm3YWO2syZCQGwRj7LI2KKJzJ2wx1",
+            "year": 2014,
+            "topic(s)": "social media, political consumerism",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 15,
+            "paper": "https://www.researchgate.net/publication/263193974_An_exploratory_study_of_the_decision-processes_of_fast_versus_slow_fashion",
+            "year": 2013,
+            "topic(s)": "marketing, consumer percption",
+            "method(s)": "focus groups"
+        },
+        {
+            "id": 16,
+            "paper": "https://www.sciencedirect.com/science/article/pii/S0969698912001506x",
+            "year": 2013,
+            "topic(s)": "social media, environmental sustainability, labor, consumer percption",
+            "method(s)": "focus groups"
+        },
+        {
+            "id": 17,
+            "paper": "https://www.tandfonline.com/doi/epdf/10.1080/0267257X.2013.778324?needAccess=true&role=button",
+            "year": 2013,
+            "topic(s)": "social media, marketing, consumer percption",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 18,
+            "paper": "https://www.sciencedirect.com/science/article/pii/S0959652611003738",
+            "year": 2012,
+            "topic(s)": "consumer percption",
+            "method(s)": "survey/questionnaire, predictive modeling"
+        },
+        {
+            "id": 19,
+            "paper": "http://upet.ro/annals/economics/pdf/annals-2011-part3.pdf#page=229",
+            "year": 2011,
+            "topic(s)": "social media, marketing",
+            "method(s)": ""
+        }
+    ],
+    "links": [
+        {
+            "source": 3,
+            "target": 4
+        },
+        {
+            "source": 6,
+            "target": 4
+        },
+        {
+            "source": 9,
+            "target": 8
+        },
+        {
+            "source": 14,
+            "target": 4
+        },
+        {
+            "source": 15,
+            "target": 11
+        },
+        {
+            "source": 16,
+            "target": 10
+        },
+        {
+            "source": 18,
+            "target": 7
+        }
+        
+    ]
+}
