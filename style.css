@@ -16,11 +16,18 @@ h1{
     font-size: 3em;
     line-height: 1em;
     font-weight: 100;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 h1 strong, h2, h3{
     font-weight: 700;
 }
+
+p.subheader{
+    font-size:2em;
+    margin-bottom: 45px;
+    line-height: 1em;
+}
+
 h3{
     font-size: 2em;
     text-align: center;

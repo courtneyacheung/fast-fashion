@@ -162,6 +162,16 @@ function plot1(){
 
     d3.select("#SVGid")
     .remove();
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#avicii_viz")
+    .append("svg")
+    .attr("id", "SVGid")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
     
     //preprocess data
     d3.csv("HM_all_stores.csv").then(function(data){
@@ -180,15 +190,6 @@ function plot1(){
     // width = 660 - margin.left - margin.right,
     // height = 400 - margin.top - margin.bottom;
 
-    // append the svg object to the body of the page
-    var svg = d3.select("#avicii_viz")
-    .append("svg")
-    .attr("id", "SVGid")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
 
     // Map and projection
     const path = d3.geoPath();
@@ -417,24 +418,20 @@ function research(){
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
+
     svg.append("text")
-    .attr("text-anchor", "left")
-    .attr("x", width/2-50)
+    .attr("text-anchor", "middle")
+    .attr("x", width/2)
     .attr("y", height/2 )
-    .text("Link to survey")
-    .attr("stroke", "white");
+    .html("<a href='https://docs.google.com/spreadsheets/d/1U5RUHrk8ISfRrXQFaZ82RxLUq0yp79HGY6YpkiNQP5E/edit?usp=sharing'>Questionnaire and Responses</a>")
+    .attr("stroke", "white")
+    .attr("text-decoration", "underline");
+
 
     svg.append("text")
-    .attr("text-anchor", "left")
-    .attr("x", width/2-50)
-    .attr("y", height/2 +20 )
-    .text("Link to Responses")
-    .attr("stroke", "white");
-
-    svg.append("text")
-    .attr("text-anchor", "left")
-    .attr("x", width/2-50)
-    .attr("y", height/2 +40)
+    .attr("text-anchor", "middle")
+    .attr("x", width/2)
+    .attr("y", height/2+30)
     .text("Link to Research Paper")
     .attr("stroke", "white");
 
