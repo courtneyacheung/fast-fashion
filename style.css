@@ -4,10 +4,12 @@ a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,d
 /* CSS */
 body{
     font-family: "Roboto";
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.5em;
-    background-image: url("https://richardsonbay.audubon.org/sites/default/files/styles/article_hero_inline/public/fast_fashion_trash_0.jpeg?itok=k51OT4Sw");
+    /* background-image: url("https://richardsonbay.audubon.org/sites/default/files/styles/article_hero_inline/public/fast_fashion_trash_0.jpeg?itok=k51OT4Sw"); */
+    /* background-image:url("https://static-prod.adweek.com/wp-content/uploads/2022/11/old-clothes-landfill-2022.jpg"); */
+    background-image:url("resized_background.jpg");
     background-attachment: fixed;
     /* background-color: #659DBD; */
     color: black;

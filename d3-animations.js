@@ -78,7 +78,7 @@ function plot0(){
             .style("opacity", 1)
             .style("position", "absolute")
             .style("color", "white")
-            .style("left", event.layerX + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("left", event.layerX+200 + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
             .style("top", event.layerY - 50 + 'px')
             .style("pointer-events", "none")
         }
@@ -154,14 +154,14 @@ function plot0(){
         var description = d3.select("#avicii_viz")
         .append("div")
         .attr("class", "current")
-        .style("background-color", "black")
+        // .style("background-color", "black")
         .style("padding", "10px");
 
         description
         .html("Description: connected scatterplot from year 2000 to 2022 showing an increase in Google Scholar publications containing the words 'social media' and 'fast fashion' starting at 0 publications and ending at 2,400 publications.") 
         .style("opacity", 1)
         .style("position", "absolute")
-        .style("color", "white")
+        .style("color", "black")
         .style("font-size", "13px")
         
         
@@ -272,14 +272,14 @@ function plot1(){
     var description = d3.select("#avicii_viz")
         .append("div")
         .attr("class", "current")
-        .style("background-color", "black")
+        // .style("background-color", "black")
         .style("padding", "10px");
 
         description
         .html("Description: map of the United States showing more than 500 H&M stores dispersed across the country in the year 2022") 
         .style("opacity", 1)
         .style("position", "absolute")
-        .style("color", "white")
+        .style("color", "black")
         .style("font-size", "13px")
 
     
@@ -360,7 +360,7 @@ function plot2(){
             .style("opacity", 1)
             .style("position", "absolute")
             .style("color", "white")
-            .style("left", event.layerX - 10  + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("left", event.layerX + 250  + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
             .style("top", event.layerY - 10  + 'px')
             .style("pointer-events", "auto")
 
@@ -441,14 +441,14 @@ function plot2(){
     var description = d3.select("#avicii_viz")
         .append("div")
         .attr("class", "current")
-        .style("background-color", "black")
+        // .style("background-color", "black")
         .style("padding", "10px");
 
         description
         .html("Description: node-link diagram showing how literature is related by citation; citations link references 10 and 16, 18 and 7, 15 and 11, 3, 4, 6, and 14.") 
         .style("opacity", 1)
         .style("position", "absolute")
-        .style("color", "white")
+        .style("color", "back")
         .style("font-size", "13px")
 
     
@@ -472,7 +472,16 @@ function research(){
     .style("padding", "10px");
 
     researchLinks
-    .html("<a href='https://docs.google.com/spreadsheets/d/1U5RUHrk8ISfRrXQFaZ82RxLUq0yp79HGY6YpkiNQP5E/edit?usp=sharing'>Questionnaire and Responses</a><br>Analysis<br>Github") 
+    .html(`<a href='https://docs.google.com/spreadsheets/d/1IR86NnH43JNFJpSUmExs_Akyflqrn11kllWN5DMbwOs/edit?usp=sharing'>
+    Questionnaire and Responses</a>
+    <br>
+    <br>
+    <a href= 'https://docs.google.com/document/d/1TLGwDeEm6R6mpU9NVcqhF8x9UcvvqD8G9DiHJuCFW44/edit?usp=sharing'>
+    Analysis</a>
+    <br>
+    <br>
+    <a href= 'https://github.com/courtneyacheung/fast-fashion'>
+    Github</a>`) 
     .style("opacity", 1)
     .style("position", "absolute")
     .style("color", "white")
