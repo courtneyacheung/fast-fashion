@@ -7,8 +7,10 @@ body{
     font-weight: 300;
     font-size: 18px;
     line-height: 1.5em;
-    background-color: #F2E8DC;
-    color: #01080D;
+    background-image: url("https://richardsonbay.audubon.org/sites/default/files/styles/article_hero_inline/public/fast_fashion_trash_0.jpeg?itok=k51OT4Sw");
+    background-attachment: fixed;
+    /* background-color: #659DBD; */
+    color: black;
 }
 
 
@@ -73,7 +75,8 @@ figure {
     z-index: 10;
 }
 #avicii_viz{
-        background-color: #01080D;
+        background-color: gray;
+        opacity: .8;
     width: 750px;
     float: right;
 }
@@ -109,6 +112,7 @@ figure {
 .step.is-active h2, .step.is-active p{
     border-right-color: #01080D;
     color: #01080D;
+    
 }
 
 p{
@@ -157,10 +161,10 @@ p span.label{
     margin: 0 auto;
     color: #01080D;
     position: absolute;
-    bottom: -35px;
+    /* bottom: -35px;
     right: 20px;
-    width: 500px;
-    text-align: right;
+    width: 500px; */
+    text-align: left;
     font-size: .8em;
     font-weight: 700;
 }
@@ -174,7 +178,7 @@ p span.label{
 }
 a{
     font-weight: 700;
-    color: #F14F54;
+    color: white;
     
 }
 #language a{

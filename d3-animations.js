@@ -5,17 +5,13 @@ const margin = {top: 50, right: 65, bottom: 45, left: 80},
 function plot0(){
     console.log("plot0");
 
-    d3.select("#SVGid")
+    d3.selectAll(".current")
     .remove();
-
-    // const margin = {top: 50, right: 25, bottom: 45, left: 80},
-    //   width = 660 - margin.left - margin.right,
-    //   height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
     .append("svg")
-    .attr("id", "SVGid")
+    .attr("class", "current")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -36,7 +32,6 @@ function plot0(){
         .domain(data.map(a=>a.Year))
         .range([ 0, width ])
         .padding(.9);
-        // .tickFormat(d3.format("d"));
         svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .attr("stroke", "white")
@@ -66,30 +61,33 @@ function plot0(){
         .attr("class", "tooltip")
         // .attr("width", 100)
         // .attr("height", 10)
-        // .style("background-color", "white")
-        // .style("border", "solid")
-        // .style("border-width", "1px")
-        // .style("border-radius", "5px")
-        // .style("padding", "10px")
+        .style("background-color", "black")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
 
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function(event, d) {
-            console.log("blah");
+            console.log("mouseover");
             console.log(d.Publications);
-            console.log(event.pageX);
+            console.log(event);
 
             tooltip
-            .html(d.Publications)
+            .html(d.Publications) 
             .style("opacity", 1)
             .style("position", "absolute")
             .style("color", "white")
+            .style("left", event.layerX + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("top", event.layerY - 50 + 'px')
+            .style("pointer-events", "none")
         }
-        var mousemove = function(event, d) {
-        console.log(d);
-            tooltip
-            .style("left", event.pageX - 800 + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-            .style("top", event.pageY - 1380 + 'px')
-        }
+        // var mousemove = function(event, d) {
+        // console.log(d);
+        //     tooltip
+        //     .style("left", event.pageX - 800 + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+        //     .style("top", event.pageY - 1380 + 'px')
+        // }
         var mouseleave = function(event, d) {
             tooltip
             .style("opacity", 0)
@@ -106,7 +104,7 @@ function plot0(){
             .attr("cy", function(d) { return y(d.Publications) } )
             .attr("r", 5)
             .on("mouseover", mouseover)
-            .on("mousemove", mousemove)
+            // .on("mousemove", mousemove)
             .on("mouseleave", mouseleave)
             .transition()
             // .duration(1000)
@@ -125,6 +123,7 @@ function plot0(){
             .x(function(d) { return x(d.Year) })
             .y(function(d) { return y(d.Publications) })
             )
+        .style("pointer-events", "none")
 
 
         // Add X axis label:
@@ -151,6 +150,20 @@ function plot0(){
         .attr("y", -20 )
         .text("Google Scholar Publications Increasingly Contain 'Fast Fashion' and 'Social Media'")
         .attr("stroke", "white");
+
+        var description = d3.select("#avicii_viz")
+        .append("div")
+        .attr("class", "current")
+        .style("background-color", "black")
+        .style("padding", "10px");
+
+        description
+        .html("Description: connected scatterplot from year 2000 to 2022 showing an increase in Google Scholar publications containing the words 'social media' and 'fast fashion' starting at 0 publications and ending at 2,400 publications.") 
+        .style("opacity", 1)
+        .style("position", "absolute")
+        .style("color", "white")
+        .style("font-size", "13px")
+        
         
     });
     
@@ -160,13 +173,13 @@ function plot0(){
 function plot1(){
     console.log("plot1");
 
-    d3.select("#SVGid")
+    d3.selectAll(".current")
     .remove();
 
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
     .append("svg")
-    .attr("id", "SVGid")
+    .attr("class", "current")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -212,10 +225,12 @@ function plot1(){
         )
         .style("stroke", "white")
 
-    svg.selectAll(".pin")
+    svg.append("g")
+    .selectAll(".pin")
     .data(US)
     .enter()
-    .append("circle", ".pin")
+    .append("circle")
+    .attr("class", "pin")
     .attr("r", 0)
     .attr("transform", function(d) {
         return "translate(" + projection([
@@ -241,8 +256,31 @@ function plot1(){
     .attr("stroke", "white");
 
     })
+
+    // create zoom effect
+    let zoom = d3.zoom()
+    .scaleExtent([0.1, 3])
+    .on('zoom', function(event) {
+        svg.selectAll("g")
+        .attr('transform', event.transform);
+    });
+
+    svg.call(zoom)
         
     });
+
+    var description = d3.select("#avicii_viz")
+        .append("div")
+        .attr("class", "current")
+        .style("background-color", "black")
+        .style("padding", "10px");
+
+        description
+        .html("Description: map of the United States showing more than 500 H&M stores dispersed across the country in the year 2022") 
+        .style("opacity", 1)
+        .style("position", "absolute")
+        .style("color", "white")
+        .style("font-size", "13px")
 
     
 }
@@ -250,7 +288,7 @@ function plot1(){
 function plot2(){
     console.log("plot2");
 
-    d3.select("#SVGid")
+    d3.selectAll(".current")
     .remove();
 
     // // set the dimensions and margins of the graph
@@ -261,7 +299,7 @@ function plot2(){
     // append the svg object to the body of the page
     var svg = d3.select("#avicii_viz")
     .append("svg")
-    .attr("id", "SVGid")
+    .attr("class", "current")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -281,6 +319,19 @@ function plot2(){
             .style("stroke", "#aaa")
             .attr("stroke-width", 1)
 
+        var mouseover2 = function(event, d) {
+            console.log("mouseover2")
+            tooltip
+            .style("opacity", 1)
+        }
+
+        var mouseleave2 = function(d) {
+            console.log("mouseleave2")
+            tooltip
+            .style("opacity", 0)
+            .style("pointer-events", "none")
+        }
+
         // tooltip
         var tooltip = d3.select("#avicii_viz")
         .append("div")
@@ -288,11 +339,13 @@ function plot2(){
         .attr("class", "tooltip")
         // .attr("width", 100)
         // .attr("height", 10)
-        // .style("background-color", "white")
-        // .style("border", "solid")
-        // .style("border-width", "1px")
-        // .style("border-radius", "5px")
-        // .style("padding", "10px")
+        .style("background-color", "black")
+        .style("border", "solid")
+        .style("border-width", "1px")
+        .style("border-radius", "5px")
+        .style("padding", "10px")
+        .on("mouseover", mouseover2)
+        .on("mouseleave", mouseleave2)
 
         // Three function that change the tooltip when user hover / move / leave a cell
         var mouseover = function(event, d) {
@@ -300,21 +353,24 @@ function plot2(){
             console.log(`<a href="${d.paper}">link</a>`);
 
             tooltip
-            .html(`<a href="${d.paper}">link</a>`)
+            .html(`<a href="${d.paper}">Read Paper</a>
+            <br>Publication Year: ${d.year}
+            <br>Topics: ${d["topic(s)"]}
+            <br>Methods: ${d["method(s)"]}`)
             .style("opacity", 1)
             .style("position", "absolute")
             .style("color", "white")
+            .style("left", event.layerX - 10  + 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+            .style("top", event.layerY - 10  + 'px')
+            .style("pointer-events", "auto")
+
         }
-        var mousemove = function(event, d) {
-        console.log(d);
-            tooltip
-            .style("left", event.pageX -800+ 'px') // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
-            .style("top", event.pageY -1380 + 'px')
-        }
+
         var mouseleave = function(d) {
             tooltip
             .style("opacity", 0)
         }
+
 
 
         // Initialize the nodes
@@ -327,7 +383,7 @@ function plot2(){
             .attr("r", 15)
             .style("fill", "#69b3a2")
         .on("mouseover", mouseover)
-        .on("mousemove", mousemove)
+        // .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
         
         let label = svg.append("g")
@@ -336,7 +392,8 @@ function plot2(){
         .data(data.nodes)
         .join("text")
         .attr("class", "label")
-        .text(d => d.id);
+        .text(d => d.id)
+        .style("pointer-events", "none");
 
 
         var simulation = d3.forceSimulation(data.nodes)                 // Force algorithm is applied to data.nodes
@@ -371,18 +428,6 @@ function plot2(){
                 .style("font-size", "8px");
         }
 
-        // create zoom effect
-        let zoom = d3.zoom()
-        .scaleExtent([0.1, 3])
-        .on('zoom', function(event) {
-            svg.selectAll("g")
-            .attr('transform', event.transform);
-            svg.selectAll("line")
-            .attr('transform', event.transform);
-        });
-
-        svg.call(zoom)
-
         // Add title:
         svg.append("text")
         .attr("text-anchor", "middle")
@@ -391,16 +436,26 @@ function plot2(){
         .text("Literature by Citation")
         .attr("stroke", "white");
 
-
-        
-
     });
+
+    var description = d3.select("#avicii_viz")
+        .append("div")
+        .attr("class", "current")
+        .style("background-color", "black")
+        .style("padding", "10px");
+
+        description
+        .html("Description: node-link diagram showing how literature is related by citation; citations link references 10 and 16, 18 and 7, 15 and 11, 3, 4, 6, and 14.") 
+        .style("opacity", 1)
+        .style("position", "absolute")
+        .style("color", "white")
+        .style("font-size", "13px")
 
     
 }
 
 function research(){
-    d3.select("#SVGid")
+    d3.selectAll(".current")
     .remove();
 
     // // set the dimensions and margins of the graph
@@ -409,30 +464,17 @@ function research(){
     // height = 400 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
-    var svg = d3.select("#avicii_viz")
-    .append("svg")
-    .attr("id", "SVGid")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+    var researchLinks = d3.select("#avicii_viz")
+    .append("div")
+    .attr("class", "current")
+    .style("opacity", 0)
+    .style("background-color", "gray")
+    .style("padding", "10px");
 
-
-    svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("x", width/2)
-    .attr("y", height/2 )
-    .html("<a href='https://docs.google.com/spreadsheets/d/1U5RUHrk8ISfRrXQFaZ82RxLUq0yp79HGY6YpkiNQP5E/edit?usp=sharing'>Questionnaire and Responses</a>")
-    .attr("stroke", "white")
-    .attr("text-decoration", "underline");
-
-
-    svg.append("text")
-    .attr("text-anchor", "middle")
-    .attr("x", width/2)
-    .attr("y", height/2+30)
-    .text("Link to Research Paper")
-    .attr("stroke", "white");
+    researchLinks
+    .html("<a href='https://docs.google.com/spreadsheets/d/1U5RUHrk8ISfRrXQFaZ82RxLUq0yp79HGY6YpkiNQP5E/edit?usp=sharing'>Questionnaire and Responses</a><br>Analysis<br>Github") 
+    .style("opacity", 1)
+    .style("position", "absolute")
+    .style("color", "white")
 
 }

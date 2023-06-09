@@ -94,7 +94,7 @@ function handleStepEnter(response) {
         //     }
             break;
         case 6:
-            // research()
+            research()
         //     if(currentDirection === 'up'){
         //         hideBezierPath()
         //         toggleElementOpacity(line, 1)
