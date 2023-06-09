@@ -1,4 +1,4 @@
-const margin = {top: 50, right: 65, bottom: 45, left: 80},
+const margin = {top: 50, right: 70, bottom: 45, left: 80},
       width = 660 - margin.left - margin.right,
       height = 400 - margin.top - margin.bottom;
 
@@ -487,3 +487,7 @@ function research(){
     .style("color", "white")
 
 }
+
+// function blurbSize(){
+
+// }

@@ -9,9 +9,22 @@ var step = article.selectAll(".step");
 var scroller = scrollama();
 
 // generic window resize listener event
-function handleResize() {
+function handleResize(idx) {
+    
     // 1. update height of step elements
-    var stepH = Math.floor(window.innerHeight * 0.75);
+
+    var stepH = Math.floor(window.innerHeight * 0.75) + 30;
+
+    // var lengths = {0: stepH, 
+    //     1: stepH*.7, 
+    //     2: stepH*.7, 
+    //     3: stepH*.7, 
+    //     4: stepH*.7, 
+    //     5: stepH*.7, 
+    //     6: stepH*.7};
+
+    // console.log(lengths[idx])
+
     step.style("height", stepH + "px");
     step.style("width", "250px")
 
@@ -50,6 +63,8 @@ function handleStepEnter(response) {
     // update graphic based on step
     switch(currentIndex){
         case 0:
+            // console.log(currentIndex);
+            // handleResize(currentIndex);
             plot0()
             // toolTipState = 'title';
             // if(currentDirection === 'up'){
@@ -57,11 +72,12 @@ function handleStepEnter(response) {
             // }
             break;
         case 1:
-            
+            // handleResize(currentIndex);
             // toolTipState = 'title score';
             // dotColorSentiment()
             break;
         case 2:
+            // handleResize(currentIndex);
             plot1()
             // toolTipState = 'title score magnitude';
             // dotResize()
@@ -70,13 +86,14 @@ function handleStepEnter(response) {
             // }
             break;
         case 3:
-            
+            // handleResize(currentIndex);
             // dotPositionScore()
             // if(currentDirection === 'up'){
             //     toggleAxesOpacity(false, true, 0)
             // }
             break;
         case 4:
+            // handleResize(currentIndex);
             plot2()
         //     dotPositionMagnitude()
         //     if(currentDirection === 'up'){
@@ -86,6 +103,7 @@ function handleStepEnter(response) {
         //     }
             break;
         case 5:
+            // handleResize(currentIndex);
         //     dotSimplify()
         //     if(currentDirection === 'up'){
         //         hideStraightPath()
@@ -94,6 +112,7 @@ function handleStepEnter(response) {
         //     }
             break;
         case 6:
+            // handleResize(currentIndex);
             research()
         //     if(currentDirection === 'up'){
         //         hideBezierPath()
