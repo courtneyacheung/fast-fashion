@@ -468,7 +468,7 @@ function research(){
     .append("div")
     .attr("class", "current")
     .style("opacity", 0)
-    .style("background-color", "gray")
+    .style("background-color", "black")
     .style("padding", "10px");
 
     researchLinks

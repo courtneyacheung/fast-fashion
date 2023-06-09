@@ -75,8 +75,8 @@ figure {
     z-index: 10;
 }
 #avicii_viz{
-        background-color: gray;
-        opacity: .8;
+        background-color: black;
+        opacity: .7;
     width: 750px;
     float: right;
 }
