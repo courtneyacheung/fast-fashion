@@ -45,7 +45,7 @@ var toolTipState = 'title';
 
 /*
 scrollama magic happens here:
-- based on the index, trigger a certiain function from d3-animations.js
+- based on the index, trigger a certiain function from script.js
 - sometimes only fire an event when going down or up in the story
 */ 
 function handleStepEnter(response) {
