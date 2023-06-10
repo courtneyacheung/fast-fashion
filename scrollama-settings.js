@@ -13,7 +13,7 @@ function handleResize(idx) {
     
     // 1. update height of step elements
 
-    var stepH = Math.floor(window.innerHeight * 0.75) + 30;
+    var stepH = Math.floor(window.innerHeight * 0.75) + 50;
 
     // var lengths = {0: stepH, 
     //     1: stepH*.7, 
